@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Minecraft Galactic Translator</title>
+    <script>
+        function translateToGalactic() {
+            var englishText = document.getElementById("englishText").value;
+            var translationMap = {
+                'a': 'ᔑ', 'b': 'ʖ', 'c': 'ᓵ', 'd': '↸', 'e': 'ᒷ', 'f': '⎓', 'g': '⊣', 'h': '⍑', 'i': '╎', 'j': '⋮',
+                'k': 'ꖌ', 'l': 'ꖎ', 'm': 'ᒲ', 'n': 'リ', 'o': 'リ', 'p': '!¡', 'q': 'ᑑ', 'r': '∷', 's': 'ᓭ', 't': 'ℸ ̣',
+                'u': '⚍', 'v': '⍊', 'w': '∴', 'x': ' ̇/', 'y': '||', 'z': '⨅'
+            };
+
+            var galacticText = '';
+            for (var i = 0; i < englishText.length; i++) {
+                var char = englishText[i].toLowerCase();
+                galacticText += translationMap[char] || char;
+            }
+
+            document.getElementById("result").innerText = "Galactic Alphabet: " + galacticText;
+        }
+    </script>
+</head>
+<body>
+    <h1>Minecraft Galactic Translator</h1>
+    <form onsubmit="event.preventDefault(); translateToGalactic();">
+        <label for="englishText">Enter English Text:</label><br>
+        <textarea id="englishText" name="englishText" rows="4" cols="50"></textarea><br><br>
+        <input type="submit" value="Translate">
+        
+
+    </form>
+           <button id="copy" onclick="navigator.clipboard.writeText(document.getElementById('result').innerText)" 
+            style="color: green;     background-color: #333; color: darkcyan; border:                     none; padding: 10px 20px; border-radius: 50px; cursor: pointer; font-size:                     16px; margin-top: 10px; background-image: linear-gradient(to right, #333,                     #000); box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+               }">Copy</button> 
+    <p id="result" style="color: yellowgreen;"></p>
+</body>
+    <link rel="stylesheet" href="style.css">
+</html>
